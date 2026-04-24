@@ -35,9 +35,8 @@ interface ThemeProviderProps {
  * Manages dark/light mode state and provides theme values
  */
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  // Use system preference as default
-  const systemColorScheme = useColorScheme();
-  const [isDark, setIsDark] = useState(systemColorScheme === 'dark');
+  // Always use light mode
+  const [isDark, setIsDark] = useState(false);
   
   // Get colors based on current mode
   const colors = isDark ? Colors.dark : Colors.light;
